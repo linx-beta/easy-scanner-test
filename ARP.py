@@ -21,3 +21,13 @@ for addr in range(0,254):
      pass;
    else:
      print prefix+str(addr)
+
+filename = str(sys.argv[1])
+file = open(filename,"r")
+
+for addr in file:
+   answer=sr1(ARP(pdst=addr.strip()),timeout=0.1,verbose=0)
+   if answer == None:
+     pass
+   else:
+     print addr.strip()
